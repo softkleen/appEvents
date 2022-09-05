@@ -1,0 +1,7 @@
+{
+  "name": "appEvents",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
