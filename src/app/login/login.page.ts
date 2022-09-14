@@ -31,7 +31,7 @@ senha: string="";
     this.service.dadosApi(dados,'api.php').subscribe( async data =>{
       console.log(data);
       if(data['success']){
-        if(data['result']['nivel']=='admin' || data['result']['nivel']=='gerente'){
+        if(data['result']['nivel']=='admin' || data['result']['nivel']=='caixa'){
           this.router.navigate(['usuarios']);
         }else{
           this.router.navigate(['folder']);
