@@ -43,10 +43,9 @@ usuarios:any = []; //define uma matriz vazia
           this.ionViewWillEnter();
         }else{
           for(let usuario of data['result']){
-            this.usuarios.push(usuario);
+            this.usuarios.push(usuario[0]);
           }
         }
-        //console.log(this.usuarios);
       });
     });
   }// fim do método carregar
@@ -57,6 +56,29 @@ usuarios:any = []; //define uma matriz vazia
     this.router.navigate(['mostrar-usuario/'+id+'/'+nome+'/'+usuario+'/'+nivel]);
   }
   ativar(id, ativo){
+    if(ativo=='1'){
+      return new Promise(()=>{
+        let dados = {
+          requisicao:'excluir',
+          id: id,
+        };
+        this.service.dadosApi(dados, "api.php").subscribe(data=>{
+          this.ionViewWillEnter();
+        })
+      });
+    }
+    else {
+      return new Promise(()=>{
+        let dados = {
+          requisicao:'ativar',
+          id: id,
+        };
+        this.service.dadosApi(dados, "api.php").subscribe(data=>{
+          this.ionViewWillEnter();
+        })
+      });
+    };
+   
 
   }
 
