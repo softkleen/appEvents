@@ -43,7 +43,7 @@
         Ativar
       </ion-item-option>
 
-      <ion-item-option *ngIf="user.ativo==1" color="danger" (click)="ativar(user.id, user.ativo)">
+      <ion-item-option *ngIf="user.ativo==1" color="danger" (click)="alertaexclusao(user.id, user.usuario)">
         Desativar
       </ion-item-option>
 
