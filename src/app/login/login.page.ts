@@ -28,7 +28,7 @@ senha: string="";
     //console.log(dados)
     // (dados) é o que está sendo passado para a API
     // (data) é o que está sendo retornado da API
-    this.service.dadosApi(dados,'api.php').subscribe( async data =>{
+    this.service.dadosApi(dados,'api_usuario.php').subscribe( async data =>{
       console.log(data);
       if(data['success']){
         if(data['result']['nivel']=='admin' || data['result']['nivel']=='caixa'){

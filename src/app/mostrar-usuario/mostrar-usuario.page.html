@@ -11,11 +11,20 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
   <ion-card class="ion-padding">
+   
     <ion-card-title>{{nome}}</ion-card-title>
     <ion-card-subtitle>{{usuario}}</ion-card-subtitle>
     <ion-card-content>
+      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" >
+      <br>
     {{nivel}}
+   
     </ion-card-content>
+    <ion-button color="danger">
+      <input type="file" class="upload" [(ngModel)]=avatar />
+    </ion-button>
   </ion-card>
+  <ion-button color="primary" expand="block" (click)="gravaavatar()">Gravar Avatar</ion-button>
 </ion-content>

@@ -39,7 +39,7 @@ usuarios:any = []; //define uma matriz vazia
         limit:this.limite,
         start:this.inicial
       };
-      this.service.dadosApi(dados,'api.php').subscribe(data =>{
+      this.service.dadosApi(dados,'api_usuario.php').subscribe(data =>{
         
         if(data['result']=='0'){
           this.ionViewWillEnter();
