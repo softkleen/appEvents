@@ -61,7 +61,7 @@ nivel: string="";
         nivel:this.nivel,
         id:this.id
       };
-      this.service.dadosApi(dados,"api.php").subscribe(data=>{
+      this.service.dadosApi(dados,"api_usuario.php").subscribe(data=>{
         if(data['success']){
           this.router.navigate(['usuarios']);
         }

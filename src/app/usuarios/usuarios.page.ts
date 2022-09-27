@@ -64,7 +64,7 @@ usuarios:any = []; //define uma matriz vazia
           requisicao:'excluir',
           id: id,
         };
-        this.service.dadosApi(dados, "api.php").subscribe(data=>{
+        this.service.dadosApi(dados, "api_usuario.php").subscribe(data=>{
           this.ionViewWillEnter();
         })
       });
@@ -75,7 +75,7 @@ usuarios:any = []; //define uma matriz vazia
           requisicao:'ativar',
           id: id,
         };
-        this.service.dadosApi(dados, "api.php").subscribe(data=>{
+        this.service.dadosApi(dados, "api_usuario.php").subscribe(data=>{
           this.ionViewWillEnter();
         })
       });
