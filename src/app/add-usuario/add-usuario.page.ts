@@ -43,6 +43,7 @@ nivel: string="";
       }
       //console.log(dados);
       this.service.dadosApi(dados, "api_usuario.php").subscribe(data=>{
+        console.log(data)
         if(data['success']){
           this.router.navigate(['usuarios']);
           this.id=null;this.nome="";this.usuario="";this.senha="";this.nivel="";
