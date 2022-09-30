@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" >
+    <ion-buttons 
+    slot="start" >
+      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+Registrar participantes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card-header>
+   <ion-card-title>{{nome}}</ion-card-title>
+{{data | date:'dd/MM/yyy'}}
+     - Capacidade {{capacidade}}
+  </ion-card-header>
+<ion-card-subtitle>Vagas {{capacidade - totalParticipantes}}</ion-card-subtitle>
+</ion-card>
+  
+<ion-item>
+  <ion-label slot="start">Visitante</ion-label>
+  <ion-checkbox color="success" slot="end" [(ngModel)]="isVisit"></ion-checkbox>
+</ion-item>
+<ion-item *ngIf="isVisit">  
+  <ion-input type="text" placeholder="Digite o nome do visitante..." [(ngModel)]="visitante"></ion-input>
+</ion-item>
+<ion-item>
+      <ion-button class="entrar" color="tertiary" (click)="verificaVisitante('Adulto')" expand="block" size="large">
+        <img src="../../assets/icon/males_male_avatar_man_people_faces_18343.ico" alt="" width="20px">
+        Adulto
+     </ion-button>
+    <ion-button class="entrar"   expand="block" color="secondary" (click)="verificaVisitante('Idoso')" size="large">
+        <img src="../../assets/icon/10172oldmanmediumlightskintone_109892.ico" alt=""  width="20px">
+        Idoso
+       </ion-button>
+         <ion-button class="entrar" expand="block" color="tertiary" (click)="verificaVisitante('Crianca')" size="large">
+      <img src="../../assets/icon/10130childmediumlightskintone_109923.ico" alt="" width="20px" >
+      Criança
+     </ion-button>
+</ion-item>
+
+
+<ion-item-divider color="tertiary" style="height: 2%;"></ion-item-divider>
+<ion-list>
+<ion-item color="light">
+   <h5>Tipo de participantes</h5>
+</ion-item>
+   <ion-item-sliding *ngFor="let tipo of tipos">
+     <ion-item-options>
+       <ion-item-option (click)="remover(tipo.tipo)">Excluir 1</ion-item-option>
+     </ion-item-options>
+   
+   <ion-item >
+     <ion-label><h4>{{tipo.tipo}}</h4> </ion-label>
+     <ion-badge color="success">{{tipo.total_tipo}}</ion-badge>
+    </ion-item>
+  </ion-item-sliding>
+</ion-list>
+<ion-item-divider color="tertiary" style="height: 2%;"></ion-item-divider>
+<ion-list>
+  <ion-item color="light">
+   <h5>Visitantes</h5> 
+   <ion-button slot="end" (click)="addVisitante()"><ion-icon name="add" ></ion-icon></ion-button>  
+  </ion-item>
+   <ion-item-sliding *ngFor="let visitante of visitantes">
+    <ion-item-options>
+      <ion-item-option (click)="excluirVisitante(visitante.id)">Excluir</ion-item-option>
+    </ion-item-options>
+    <ion-item >
+     <ion-label>{{visitante.nome}}</ion-label>
+    </ion-item>
+   </ion-item-sliding>
+  
+
+</ion-list>
+
+
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Participantes - {{totalParticipantes}}</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" >
+    <ion-buttons 
+    slot="start" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Ibanov Access
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-item>
+  <ion-button expand="full" slot="end" (click)="addEvento()">
+    Novo Evento 
+    <ion-icon name="add"></ion-icon>
+  </ion-button>
+</ion-item>
+<ion-list>
+  <ion-item-divider></ion-item-divider>
+  <ion-item>
+    <ion-label>Evento</ion-label>
+    <ion-label>Data</ion-label>
+    <ion-label>Capacidade</ion-label>
+    <ion-label>Participantes</ion-label>
+  </ion-item>
+  <ion-item-sliding *ngFor="let evento of eventos" (click)="registrarParticipante(evento)">
+    <ion-item-options slot="start">
+      <ion-item-option>Editar</ion-item-option>
+    </ion-item-options>
+    <ion-item >
+    <ion-label>{{evento.nome}}</ion-label>
+    <ion-label>{{evento.data | date: 'dd/MM'}}</ion-label>
+  <ion-label color="success">{{evento.capacidade}}</ion-label>
+  <ion-label color="danger">{{evento.participantes}}</ion-label>
+  </ion-item>
+  </ion-item-sliding>
+  
+</ion-list>
+
+</ion-content>
